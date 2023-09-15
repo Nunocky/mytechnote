@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Firebase学習 (friendlyeats-androidのコードを読む) - MyTechNotes</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">MyTechNotes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">MyTechNotes</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Android <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../" class="dropdown-item">Android</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Firebase学習 (friendlyeats-androidのコードを読む)</a>
+</li>
+                                    
+<li>
+    <a href="../Compose%20%E3%81%A7%20Scaffold/" class="dropdown-item">Compose で Scaffold</a>
+</li>
+                                    
+<li>
+    <a href="../Compose%E3%81%AE%E7%96%91%E5%95%8F%E3%83%A1%E3%83%A2/" class="dropdown-item">Composeの疑問メモ</a>
+</li>
+                                    
+<li>
+    <a href="../Jetpack%20Compose%20%E3%81%AE%E9%AB%98%E5%BA%A6%E3%81%AA%E7%8A%B6%E6%85%8B%E3%81%A8%E5%89%AF%E4%BD%9C%E7%94%A8/" class="dropdown-item">Jetpack Compose の高度な状態と副作用</a>
+</li>
+                                    
+<li>
+    <a href="../compose_LazyRow%E5%8B%89%E5%BC%B7/" class="dropdown-item">LazyRow の勉強</a>
+</li>
+                                    
+<li>
+    <a href="../make_it_so/" class="dropdown-item">MakeItSoアプリの開発</a>
+</li>
+                                    
+<li>
+    <a href="../%E6%83%85%E5%A0%B1%E6%BA%90/" class="dropdown-item">Android の情報源</a>
+</li>
+                                    
+<li>
+    <a href="../%E8%AA%B2%E9%A1%8C/" class="dropdown-item">課題</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../Compose%20%E3%81%A7%20Scaffold/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#firebase-friendlyeats-android" class="nav-link">Firebase学習 (friendlyeats-androidのコードを読む)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">気にしているところ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">ファイル</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="firebase-friendlyeats-android">Firebase学習 (friendlyeats-androidのコードを読む)</h1>
+<p>[2023-08-31 11:07]</p>
+<p><a href="https://firebase.google.com/codelabs/firestore-android?hl=ja">Cloud Firestore Android コードラボ</a> のコードを読む</p>
+<h2 id="_1">気にしているところ</h2>
+<ul>
+<li>Initializer でモジュールを初期化している</li>
+<li>Query, Snapshotなどの型</li>
+<li>firestoreと連携するための deta class</li>
+<li>ログインの実際の処理</li>
+</ul>
+<h2 id="_2">ファイル</h2>
+<pre><code class="language-text">                `-- fireeats
+                    |-- FilterDialogFragment.kt
+                    |-- Filters.kt
+                    |-- MainActivity.kt
+                    |-- MainFragment.kt
+                    |-- RatingDialogFragment.kt
+                    |-- RestaurantDetailFragment.kt
+                    |-- adapter
+                    |   |-- FirestoreAdapter.kt
+                    |   |-- RatingAdapter.kt
+                    |   `-- RestaurantAdapter.kt
+                    |-- model
+                    |   |-- Rating.kt
+                    |   `-- Restaurant.kt
+                    |-- util
+                    |   |-- AuthInitializer.kt
+                    |   |-- FirestoreInitializer.kt
+                    |   |-- RatingUtil.kt
+                    |   `-- RestaurantUtil.kt
+                    `-- viewmodel
+                        `-- MainActivityViewModel.kt
+
+</code></pre>
+<h3 id="mainactivitykt">✔ MainActivity.kt</h3>
+<p>ツールバーとナビゲーションの設定をしているだけ。</p>
+<h3 id="mainfragmentkt">★★★ MainFragment.kt</h3>
+<p>メイン画面。
+firebaseへのアクセスが多いのでよく読む必要がある</p>
+<ul>
+<li>サインイン・サインアウト</li>
+<li>レストラン一覧の取得と表示</li>
+<li>ランダムにレストランを追加する機能</li>
+</ul>
+<h4 id="_3">サインイン</h4>
+<p>ビルトインのログインフォームを呼んでいる</p>
+<pre><code class="language-kotlin">    private val signInLauncher = registerForActivityResult(
+        FirebaseAuthUIActivityResultContract()
+    ) { result -&gt; this.onSignInResult(result) }
+
+
+    private fun startSignIn() {
+        // Sign in with FirebaseUI
+        val intent = AuthUI.getInstance().createSignInIntentBuilder()
+                .setAvailableProviders(listOf(AuthUI.IdpConfig.EmailBuilder().build()))
+                .setIsSmartLockEnabled(false)
+                .build()
+
+        signInLauncher.launch(intent)
+        viewModel.isSigningIn = true
+    }
+
+</code></pre>
+<p>レイアウトのカスタマイズ、というか AuthUI の実装でアプリに合わせた UI にすることは可能っぽい。
+- https://firebaseopensource.com/projects/firebase/firebaseui-android/auth/readme/
+- https://firebase.google.com/docs/auth/android/firebaseui?hl=ja</p>
+<p>サインイン状態は <code>Firebase.auth.currentUser</code> で把握できる。</p>
+<p>結果は <code>onSignInResult</code> で受けている。</p>
+<h4 id="_4">レストラン一覧の表示</h4>
+<p>"restaurants" のコレクションを取得し、並べかえと表示上限を設定したクエリーを作成。</p>
+<p>クエリーを ReciclerViewのアダプタにセットする。</p>
+<pre><code class="language-kotlin">        query = firestore.collection(&quot;restaurants&quot;)
+            .orderBy(&quot;avgRating&quot;, Query.Direction.DESCENDING)
+            .limit(LIMIT.toLong())
+
+        // RecyclerView
+        query?.let {
+            adapter = object : RestaurantAdapter(it, this@MainFragment) {
+            ...
+            binding.recyclerRestaurants.adapter = adapter
+        }
+</code></pre>
+<p>onStart / onStop でサーバの監視を開始・停止している</p>
+<pre><code class="language-kotlin">    override fun onStart() {
+        super.onStart()
+        ...
+
+        // Start listening for Firestore updates
+        adapter?.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        adapter?.stopListening()
+    }
+</code></pre>
+<h4 id="_5">レストラン情報をサーバに追加</h4>
+<p>コレクション restaurants に対して addを繰り返し行う。</p>
+<pre><code class="language-kotlin">        val restaurantsRef = firestore.collection(&quot;restaurants&quot;)
+        repeat(10) {
+            RestaurantUtil.getRandom(requireContext()).let {
+                restaurantsRef.add(it)
+            }
+        }
+    }
+</code></pre>
+<h3 id="filterdialogfragmentkt">✔ FilterDialogFragment.kt</h3>
+<p>Filters オブジェクトを返すためのダイアログ。
+firebaseとは無関係なのであまり読まなくて良い</p>
+<h3 id="filterskt">✔ Filters.kt</h3>
+<p>firebaseに問い合わせを行うためのフィルタ条件を管理する。</p>
+<h3 id="ratingdialogfragmentkt">✔ RatingDialogFragment.kt</h3>
+<p>口コミ情報を入力するためのダイアログ</p>
+<h3 id="restaurantdetailfragmentkt">✔ ★★★ RestaurantDetailFragment.kt</h3>
+<p>詳細画面。
+firebaseへのアクセスがある。よく読む必要がある</p>
+<p>fireStoreは "コレクション"として複数データを管理する。アクセスは <code>DocumentReference</code> を用いて行われる。</p>
+<p>"コレクション"の中に "ドキュメント"がある。これが レストラン情報の Restaurant オブジェクトに対応する。</p>
+<pre><code class="language-kotlin">        restaurantRef = firestore.collection(&quot;restaurants&quot;).document(restaurantId)
+</code></pre>
+<p>口コミはレストラン情報の下に位置する "サブコレクション"として管理される。</p>
+<pre><code class="language-kotlin">        val ratingsQuery = restaurantRef
+                .collection(&quot;ratings&quot;)
+                .orderBy(&quot;timestamp&quot;, Query.Direction.DESCENDING)
+                .limit(50)
+</code></pre>
+<p>サーバ上の変化はコールバックで受け取る。 監視の開始と停止は onStart/onStop で行われている</p>
+<pre><code class="language-kotlin">        // onStart
+        restaurantRegistration = restaurantRef.addSnapshotListener(this)
+
+
+        // onStop
+        restaurantRegistration?.remove()
+        restaurantRegistration = null
+``````
+
+fragmentは `EventListener&lt;DocumentSnapshot&gt;` を implement している。
+
+
+```java
+  public ListenerRegistration addSnapshotListener(
+      @NonNull EventListener&lt;DocumentSnapshot&gt; listener) {
+    return addSnapshotListener(MetadataChanges.EXCLUDE, listener);
+  }
+</code></pre>
+<h4 id="_6">口コミの投稿</h4>
+<p>口コミ投稿ダイアログから onRating が呼ばれる。その中で addRating が実行され、これが口コミを投稿する。</p>
+<p>ここはトランザクションで複数処理を行なっている。</p>
+<pre><code class="language-kotlin">        return firestore.runTransaction { transaction -&gt;
+            ...
+            transaction.set(restaurantRef, restaurant)
+            transaction.set(ratingRef, rating)
+            null
+        }
+</code></pre>
+<h3 id="adapterfirestoreadapterkt">✔ ★★★ adapter/FirestoreAdapter.kt</h3>
+<p>RestaurantAdapter, RatingAdapter の基底クラス</p>
+<p>firebaseへのアクセスを行なっている</p>
+<p><code>Query</code></p>
+<ul>
+<li>firestoreに対する問い合わせ条件 (query)</li>
+<li>検索条件などもメソッドで定義する</li>
+</ul>
+<p><code>FirebaseFirestore</code></p>
+<h4 id="startlistening-stoplistening">startListening / stopListening</h4>
+<p>fragmentの onStart/onStop時に呼んでいる</p>
+<p><code>registration</code> オブジェクトを queryから作っている (queryに対して SnapshotListenerを登録)</p>
+<pre><code class="language-kotlin">            registration = query.addSnapshotListener(this)
+</code></pre>
+<h4 id="addsnapshotlistener">addSnapshotListener の中身は?</h4>
+<p><code>EventListener&lt;QuerySnapshot&gt;</code> を継承したクラスに <code>onEvent</code> メソッドを実装。 ここで <code>QuerySnapshot</code> オブジェクトを受け、更新の内容を把握することができる。</p>
+<p><code>QuerySnapshot</code> は0個以上の DocumentSnapshot を持っている。 onEventではそれを一つ一つ確認して対応する処理を行なっている。</p>
+<pre><code class="language-kotlin">        for (change in documentSnapshots!!.documentChanges) {
+            ...
+        }
+</code></pre>
+<ul>
+<li>ADDED ... 新しいアイテムが追加された</li>
+<li>MODIFIED ... アイテムの内容が変更された (インデックス値が同じ場合は更新処理、異なる場合は削除+追加処理)</li>
+<li>REMOVED ... アイテムが削除された</li>
+</ul>
+<p>ADDED, MODIFIED, REMOVED それぞれで snapshot オブジェクトを操作する。 snapshot は単純な ArrayList。</p>
+<pre><code class="language-kotlin">    private val snapshots = ArrayList&lt;DocumentSnapshot&gt;()
+</code></pre>
+<p>サーバ上のデータが変化 
+  → firebaseが受信 
+  → onEvent で notifyItemInserted / notifyItemChanged / notifyItemMoved / notifyItemRemoved を通知
+  → ReciclerViewAdapter が受信, onBindViewHolderが呼ばれる
+  → getSnapshot で DocumentSnapshot を Restaurant, Ratingに変換
+  → 表示に情報を反映</p>
+<h3 id="adapterratingadapterkt">✔ ★★ adapter/RatingAdapter.kt</h3>
+<p>口コミ情報のリスト表示</p>
+<ul>
+<li><code>Query</code></li>
+<li>
+<p><code>FirestoreAdapter</code>で使用する。</p>
+</li>
+<li>
+<p><code>DocumentSnapshot</code></p>
+</li>
+<li>getSnapshot関数で snapshotオブジェクトを取得する (FirestoreAdapterのメソッド)</li>
+<li>snapshotから <code>Restaurant</code>オブジェクトに変換してレイアウトに反映する。</li>
+<li>アイテムタップ時は呼び出し元オブジェクトに対して onRestaurantSelected コールバックで snapshotを渡す。</li>
+</ul>
+<h3 id="adapterrestaurantadapterkt">✔ ★★ adapter/RestaurantAdapter.kt</h3>
+<p>レストランのリスト表示</p>
+<ul>
+<li><code>Query</code></li>
+<li>
+<p><code>FirestoreAdapter</code>で使用する。</p>
+</li>
+<li>
+<p><code>DocumentSnapshot</code></p>
+</li>
+<li>getSnapshot関数で snapshotオブジェクトを取得する (FirestoreAdapterのメソッド)</li>
+<li>snapshotから <code>Restaurant</code>オブジェクトに変換してレイアウトに反映する。</li>
+<li>アイテムタップ時は呼び出し元オブジェクトに対して onRestaurantSelected コールバックで snapshotを渡す。</li>
+</ul>
+<p>データバインディングを使う必要がないのはちょっと以外</p>
+<h3 id="modelratingkt">✔ ★ model/Rating.kt</h3>
+<p>口コミ情報
+firebase firestoreと連動するデータクラス</p>
+<p>口コミ情報は投稿者と紐付けられている ... <strong>FirebaseUser</strong></p>
+<p>uid, displayName, emailが使われている</p>
+<p><code>@ServerTimestamp</code> アノテーション ... サーバ側で適切な値にセットしてもらうために付ける</p>
+<h3 id="modelrestaurantkt">✔ ★ model/Restaurant.kt</h3>
+<p>レストラン情報
+firebase firestoreと連動するデータクラス</p>
+<p><code>@IgnoreExtraProperties</code> アノテーション ... データベース上にこのクラスで定義されていない情報があっても無視する</p>
+<h3 id="utilauthinitializerkt">✔ util/AuthInitializer.kt</h3>
+<p>FirebaseAuthの初期化
+オフラインでテストする際に有効</p>
+<h3 id="utilfirestoreinitializerkt">✔ util/FirestoreInitializer.kt</h3>
+<p>FirebaseFirestoreの初期化
+オフラインでテストする際に有効</p>
+<h3 id="utilratingutilkt">✔ util/RatingUtil.kt</h3>
+<p>口コミ情報の設定・表示の際に使うユーティリティ</p>
+<h3 id="utilrestaurantutilkt">✔ util/RestaurantUtil.kt</h3>
+<p>レストラン情報の設定・表示の際に使うユーティリティ</p>
+<h3 id="viewmodelmainactivityviewmodelkt">✔ viewmodel/MainActivityViewModel.kt</h3>
+<p>サインイン状態とフィルタ条件の管理</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
