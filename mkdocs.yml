@@ -1,1 +1,3 @@
 site_name: MyTechNotes
+theme:
+  name: material
