@@ -6,7 +6,7 @@
 
 ### Jetpack Compose
 
-- [Composeの疑問メモ](./android/Composeの疑問メモ.md) ... 逆引き的なメモ
+- [逆引き Compose](./android/逆引き%20Compose.md)
 - [高度な状態と副作用のノート](./android/Jetpack%20Compose%20の高度な状態と副作用.md)
 
 ### Firebase

@@ -1,15 +1,13 @@
-# Jetpack Compose の高度な状態と副作用
-
-学習メモ
+# Codekab : Jetpack Compose の高度な状態と副作用の学習メモ
 
 https://developer.android.com/codelabs/jetpack-compose-advanced-state-side-effects
 
-##  LaunchedEffect
+## LaunchedEffect
 
 - Compoisionに入ったときにコルーチンを起動する。
 - Composition の退場時にコルーチンはキャンセルされる。
 - 引数 key に値を渡すことで、キーの変化のたびにコルーチンを実行できる。
-- keyに Unitを渡すと、1回目の Composition (Composition開始時) でだけコルーチンを起動することができる。
+- keyに Unitを渡すと、1回目の Composition (Composition開始時) にだけコルーチンを起動することができる。
 - コルーチンの中からコールバック関数を使って上位に通知を行うときは、コールバック関数を `rememberUpdateState` で管理する。
 
 ## rememberCoroutineScope
@@ -38,14 +36,12 @@ https://developer.android.com/codelabs/jetpack-compose-advanced-state-side-effec
 State を Flow に変換する。
 LaunchedEffect の中で Flowに変換して、 collectするのが定石?
 
-
 ## DisposableEvent
 
 `ライフサイクルの変化をカスタムビューに通知する`ために使われるのが主な使われ方。
 
 新しいライブラリでもっと簡単になったっぽい (まだα)
 [ComposeでLifecycleを監視する(2023年9月バージョン)](https://star-zero.medium.com/compose%E3%81%A7lifecycle%E3%82%92%E7%9B%A3%E8%A6%96%E3%81%99%E3%82%8B-2023%E5%B9%B49%E6%9C%88%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3-8aae9b277f5c)
-
 
 ## produceState
 
@@ -69,13 +65,7 @@ Craneアプリの場合、スクロール位置の変化は操作時に大量に
 > The answer to this question is derivedStateOf {} should be used when
 > your state or key is changing more than you want to update your UI
 
-
-
-
-
-
 ## メモ
+
 - collectAsStateWithLifecycle
   - [collectAsStateWithLifecycleが追加されたぞ](https://qiita.com/dosukoi_android/items/e8bbaa662c52b8e1cc20)
-  
-  
