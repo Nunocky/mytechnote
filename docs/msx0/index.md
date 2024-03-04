@@ -1,5 +1,11 @@
 # MSX0
 
+## 実行環境
+
+- msx0本体
+- [WebMSX](https://webmsx.org/)
+- [MSXPen](https://msxpen.com/) ... WebMSX + BASIC/ASMエディタ
+
 ## クロス開発
 
 - [MSXのZ80で何か作る｜note](https://note.com/msx_z80_program)
