@@ -1,9 +1,11 @@
 # MyTechNote - NUNOKAWA Masato
 
+Software Engineer
+love music and outdoor activity
+
 死後サバに会う
 
-Software Engineer
-
+- [Bluesky](https://bsky.app/profile/nunocky.bsky.social)
 - [LinkedIn](https://www.linkedin.com/in/masato-nunokawa-271631317/)
 
 ## Interests
